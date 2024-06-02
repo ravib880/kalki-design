@@ -1,0 +1,30 @@
+@import 'var';
+
+@mixin flexwithbetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin flexwitharound {
+    display: flex;
+    justify-content: space-around;
+}
+
+@mixin flexwithevenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@mixin darkbtn {
+    background-color: $darkcolor;
+    color: $lightcolor;
+    border-color: $darkcolor;
+    padding: 0.5rem 1rem;
+}
+
+@mixin lightbtn {
+    background-color: $lightcolor;
+    color: $darkcolor;
+    border-color: $lightcolor;
+    padding: 0.5rem 1rem;
+}
