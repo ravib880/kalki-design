@@ -2,8 +2,35 @@
 @import 'var';
 
 
+
 .main_header {
-    box-shadow: 0px 0px 10px lightgray;
+    box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    font-family: $defaultFontFamily;
+    transition: 1s;
+
+    &:hover {
+        background-color: $secondaryColor;
+        box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
+    }
+}
+
+.transparentHeader {
+    background-color: transparent;
+    box-shadow: 0 0 0 transparent;
+
+    &:hover {
+        background-color: $secondaryColor;
+    }
+}
+
+.main_sub_header {
+    box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
+    position: sticky;
+    top: 90px;
+    font-family: $defaultFontFamily;
 }
 
 .logoimg {
@@ -17,10 +44,11 @@
 
 .hdrcontent {
     gap: 1rem;
-    a{
-        i{
+
+    a {
+        i {
             font-size: 1.3rem;
-            color: $darkcolor;
+            color: $primaryColor;
         }
     }
 }
@@ -28,7 +56,7 @@
 .searchmenu {
     input {
         border-radius: 10px 0px 0px 10px;
-        border-color: black;
+        border-color: $primaryColor;
         outline: none;
     }
 
@@ -39,13 +67,200 @@
 }
 
 .largesearch {
-    border: 1px solid rgb(240, 240, 240) !important;
-    background-color: rgb(240, 240, 240);
+    border: 1px solid $secondaryColor;
+    background-color: $secondaryColor;
     border-radius: 10px;
 
     input {
         border-width: 0px !important;
         outline: none;
-        background-color: rgb(240, 240, 240);
+        background-color: $secondaryColor;
+    }
+}
+
+.content1,
+.content2,
+.content3 {
+    width: 100%;
+}
+
+.NavLinkCss {
+    .nav-item {
+        font-weight: normal;
+    }
+
+    a {
+        &:hover {
+            @include darkbtn;
+        }
+    }
+}
+
+.darkBtn {
+    background-color: $primaryColor;
+    color: $secondaryColor !important;
+    @include flexwithbetween;
+}
+
+.lightBtn {
+    background-color: $secondaryColor;
+    color: $primaryColor;
+    @include flexwithbetween;
+}
+
+.catImageHover img {
+    filter: brightness(35%);
+}
+
+.sub_heading {
+    position: relative;
+
+    a {
+        text-decoration: none;
+        font-size: 14px;
+        color: $primaryColor;
+        padding: 0.75rem 0rem;
+        transition: .3s;
+
+        &:hover {
+            color: $subSecondoryColor;
+            border-bottom: 1px solid $subSecondoryColor;
+        }
+
+        .sub_menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            list-style-type: none;
+            justify-content: space-around;
+            min-width: 100%;
+            min-height: 20rem;
+            @include lightbtn;
+            box-shadow: 0 0 4px rgb(0, 0, 0, 0.1);
+            padding-top: 1.5rem;
+            display: none;
+            z-index: 999;
+            font-family: $secondaryFontFamily !important;
+        }
+
+        .peta_menu {
+            list-style-type: none;
+            font-weight: 100 !important;
+            font-family: $secondaryFontFamily !important;
+        }
+    }
+}
+
+.sub_heading a:hover .sub_menu {
+    display: flex;
+}
+
+.catImage {
+    height: 100%;
+    width: 15%;
+    display: block;
+    align-items: center;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.catImageContain {
+    width: 100%;
+    align-items: center;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 992px) {
+    .offcanvas-backdrop.show {
+        display: none;
+    }
+}
+
+@media (max-width: 1350px) {
+    .sub_heading {
+        a {
+            font-size: 13px;
+
+            .sub_menu {
+                min-height: 15rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+    .sub_heading {
+        a {
+            font-size: 10px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+
+    .content1,
+    .content2,
+    .content3 {
+        width: auto;
+    }
+
+    .content1 {
+        .navbar-toggler {
+            padding: 0;
+            border: 0;
+        }
+    }
+
+    .sub_heading {
+        a {
+            padding: 0.2rem 0rem;
+
+            &:hover {
+                border-bottom: 0px;
+                @include darkbtn
+            }
+
+            .sub_menu {
+                display: none;
+            }
+        }
+    }
+
+    .NavLinkCss {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        .nav-item {
+            flex: 1 0 50%;
+            padding: 0.5rem;
+
+            .nav-link {
+                border: 1px solid $primaryColor;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .logoimg {
+        height: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .sub_header {
+        display: block;
+    }
+
+    .logoimg {
+        height: 3rem;
     }
 }

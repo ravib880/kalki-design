@@ -16,15 +16,15 @@
 }
 
 @mixin darkbtn {
-    background-color: $darkcolor;
-    color: $lightcolor;
-    border-color: $darkcolor;
+    background-color: $primaryColor;
+    color: $secondaryColor;
+    border-color: $primaryColor;
     padding: 0.5rem 1rem;
 }
 
 @mixin lightbtn {
-    background-color: $lightcolor;
-    color: $darkcolor;
-    border-color: $lightcolor;
+    background-color: $secondaryColor;
+    color: $primaryColor;
+    border-color: $secondaryColor;
     padding: 0.5rem 1rem;
 }

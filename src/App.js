@@ -3,6 +3,8 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import route from './Routes/routes';
 import Header from './Components/Header';
+import './Assets/sass/style.scss';
+
 
 function App() {
   return (
