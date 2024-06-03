@@ -23,7 +23,7 @@
 }
 
 @mixin lightbtn {
-    background-color: $secondaryColor;
+    background-color: transparent;
     color: $primaryColor;
     border-color: $secondaryColor;
     padding: 0.5rem 1rem;

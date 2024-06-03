@@ -514,7 +514,7 @@ function Header() {
                         <div className="content2 d-flex justify-content-center">
                             <Navbar.Brand>
                                 <Link to="/" className='logoimg'>
-                                    <img src={require('../Assets/Img/logo.png')} alt="Logo" />
+                                    <img src={location.pathname==='/bridal'?require('../Assets/Img/logo2.png'):require('../Assets/Img/logo.png')} alt="Logo" />
                                 </Link>
                             </Navbar.Brand>
                         </div>

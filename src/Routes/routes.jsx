@@ -1,3 +1,4 @@
+import BridalPage from "../View/Bridal/BridalPage";
 import Home from "../View/Home/Home";
 
 const route = [
@@ -15,7 +16,7 @@ const route = [
     },
     {
         path: '/bridal',
-        element: <Home />
+        element: <BridalPage />
     },
     {
         path: '/lux',
