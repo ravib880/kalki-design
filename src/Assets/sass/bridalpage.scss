@@ -1,0 +1,13 @@
+@import 'mixin';
+@import 'var';
+
+@media(max-width: 1200px){
+    .portraitVideo{
+        margin-top: 90px;
+    }
+} 
+@media(max-width: 992px){
+    .portraitVideo{
+        margin-top: 131px;
+    }
+} 

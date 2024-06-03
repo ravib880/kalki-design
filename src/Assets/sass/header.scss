@@ -6,7 +6,8 @@
 .main_header {
     box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
     z-index: 999;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     font-family: $defaultFontFamily;
     transition: 1s;
@@ -20,17 +21,125 @@
 .transparentHeader {
     background-color: transparent;
     box-shadow: 0 0 0 transparent;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    font-family: $defaultFontFamily;
+    transition: 1s;
+
+    @media (max-width: 1200px){
+        background-color: $primaryColor;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28255, 255, 255, 1%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e");
+    }
+
+    &:hover .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280, 0, 0, 1%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e");
+    }
+
+    &:hover {
+        background-color: $secondaryColor;
+        box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
+    }
 
     &:hover {
         background-color: $secondaryColor;
     }
+
+    &:hover .tranparentLightBtn {
+        @include lightbtn;
+    }
+
+    .tranparentLightBtn {
+        @include darkbtn;
+        background-color: transparent;
+        transition: 0.5s !important;
+
+        &:hover {
+            @include darkbtn;
+        }
+    }
+
+    &:hover .logoimg img {
+        filter: invert(0%);
+    }
+
+    .logoimg {
+        img {
+            filter: invert(100%);
+        }
+    }
+
+    #search {
+        background-color: rgb(255, 255, 255, 0.9);
+        border-style: solid;
+        color: $primaryColor;
+    }
+
+    &:hover #search {
+        background-color: rgb(255, 255, 255, 0);
+        border-color: $primaryColor;
+        border-style: solid;
+        color: $primaryColor;
+    }
+
+    .content2 {
+        a {
+            i {
+                color: $secondaryColor;
+            }
+        }
+    }
+
+    &:hover .content2 {
+        a {
+            i {
+                color: $primaryColor;
+            }
+        }
+    }
+
+    .largesearch {
+        background-color: transparent;
+        border: 1px solid rgb(255, 255, 255, 0.5);
+        input {
+            background-color: transparent;
+        }
+
+        i {
+            color: $secondaryColor;
+        }
+    }
+
+    &:hover .largesearch {
+        background-color: transparent;
+
+            border: 1px solid rgb(0, 0, 0, 1);
+            input {
+            background-color: transparent;
+        }
+
+        i {
+            color: $primaryColor;
+        }
+    }
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280, 0, 0, 1%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e");
 }
 
 .main_sub_header {
     box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 90px;
     font-family: $defaultFontFamily;
+    z-index: 998;
+    background-color: $secondaryColor;
 }
 
 .logoimg {
@@ -102,9 +211,16 @@
     @include flexwithbetween;
 }
 
+
 .lightBtn {
     background-color: $secondaryColor;
     color: $primaryColor;
+    @include flexwithbetween;
+}
+
+.tranparentLightBtn {
+    background-color: transparent;
+    color: $secondaryColor;
     @include flexwithbetween;
 }
 
@@ -221,10 +337,12 @@
     .sub_heading {
         a {
             padding: 0.2rem 0rem;
+            color: $secondaryColor !important;
 
             &:hover {
                 border-bottom: 0px;
-                @include darkbtn
+                @include darkbtn;
+                color: $secondaryColor !important;
             }
 
             .sub_menu {

@@ -19,7 +19,7 @@ const route = [
         element: <BridalPage />
     },
     {
-        path: '/lux',
+        path: '/luxe',
         element: <Home />
     },
 ];

@@ -437,7 +437,7 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/'
-                                                className={location.pathname === '/' ? 'darkBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/' ? 'darkBtn px-3' : location.pathname === '/bridal' ? 'tranparentLightBtn px-3' : 'lightBtn px-3'}
                                             >
                                                 <span>Women</span> <i class="bi bi-caret-right d-block d-lg-none"></i>
                                             </Nav.Link>
@@ -449,7 +449,7 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/men'
-                                                className={location.pathname === '/men' ? 'darkBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/men' ? 'darkBtn px-3' : location.pathname === '/bridal' ? 'tranparentLightBtn px-3' : 'lightBtn px-3'}
                                             >
                                                 <span>Men</span> <i class="bi bi-caret-right d-block d-lg-none"></i>
                                             </Nav.Link>
@@ -461,21 +461,21 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/bridal'
-                                                className={location.pathname === '/bridal' ? 'darkBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/bridal' ? 'darkBtn px-3' : location.pathname === '/bridal' ? 'tranparentLightBtn px-3' : 'lightBtn px-3'}
                                             >
                                                 Bridal
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item className='d-grid' onClick={combinedClose}>
-                                            <Nav.Link className={location.pathname === '/lux' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/lux'>
+                                            <Nav.Link className={location.pathname === '/luxe' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/luxe'>
                                                 <img src={require('../Assets/Img/pink_embroidered_choli_with_exquisite_lehenga_an-sg220433_6_.jpg')} alt="" />
                                             </Nav.Link>
                                             <Nav.Link
                                                 as={Link}
-                                                to='/lux'
-                                                className={location.pathname === '/lux' ? 'darkBtn px-3' : 'lightBtn px-3'}
+                                                to='/luxe'
+                                                className={location.pathname === '/luxe' ? 'darkBtn px-3' : location.pathname === '/bridal' ? 'tranparentLightBtn px-3' : 'lightBtn px-3'}
                                             >
-                                                Lux
+                                                Luxe
                                             </Nav.Link>
                                         </Nav.Item>
                                     </Nav>
@@ -514,7 +514,7 @@ function Header() {
                         <div className="content2 d-flex justify-content-center">
                             <Navbar.Brand>
                                 <Link to="/" className='logoimg'>
-                                    <img src={location.pathname==='/bridal'?require('../Assets/Img/logo2.png'):require('../Assets/Img/logo.png')} alt="Logo" />
+                                    <img src={require('../Assets/Img/logo.png')} alt="Logo" />
                                 </Link>
                             </Navbar.Brand>
                         </div>
