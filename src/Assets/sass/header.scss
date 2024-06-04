@@ -5,18 +5,29 @@
 
 .main_header {
     box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    top: 0;
     font-family: $defaultFontFamily;
     transition: 1s;
-    top: 0;
     background-color: $secondaryColor;
+
     &:hover {
         box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
     }
 }
 
+.forMargin {
+    height: 137px;
+}
+
 .transparentHeader {
-    background-color: $primaryColor;
+    background-color: transparent;
     box-shadow: 0 0 0 transparent;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
     top: 0;
     font-family: $defaultFontFamily;
     transition: 1s;
@@ -128,14 +139,13 @@
 }
 
 .main_sub_header {
-    top: 90px;
     box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 90px;
     font-family: $defaultFontFamily;
+    z-index: 998;
     background-color: $secondaryColor;
-}
-
-.forMargin{
-    height: 137px;
 }
 
 .logoimg {
@@ -323,6 +333,10 @@
         width: auto;
     }
 
+    .forMargin {
+        height: 147.6px;
+    }
+
     .content1 {
         .navbar-toggler {
             padding: 0;
@@ -366,6 +380,10 @@
 @media (max-width: 768px) {
     .logoimg {
         height: 3rem;
+    }
+
+    .forMargin {
+        height: 131.6px;
     }
 }
 

@@ -551,6 +551,7 @@ function Header() {
                     {menSubHeader}
                 </Navbar>
             )}
+            <div className={location.pathname ==='/bridal'? '':'forMargin'}></div>
         </div>
     );
 }

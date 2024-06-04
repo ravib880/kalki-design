@@ -4,8 +4,13 @@
 .main_home {
     color: $primaryColor;
     overflow: hidden;
+
     .carousel {
+        width: 100%;
+
         .carousel-inner {
+            width: 100%;
+
             .carousel-item {
                     width: 100%;
                     img {
