@@ -1,5 +1,8 @@
 @import 'header';
 @import 'bridalpage';
+@import 'footer';
+@import 'home';
+
 /* roboto-regular - latin */
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -21,6 +24,26 @@
 
 .fs-11 {
     font-size: 11px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-25 {
+    font-size: 25px;
+}
+
+.fs-30 {
+    font-size: 30px;
 }
 
 .ff-lexend {

@@ -12,7 +12,7 @@ const route = [
     },
     {
         path: '/men',
-        element: <Home />
+        element: <></>
     },
     {
         path: '/bridal',
@@ -20,7 +20,7 @@ const route = [
     },
     {
         path: '/luxe',
-        element: <Home />
+        element: <></>
     },
 ];
 

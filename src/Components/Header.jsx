@@ -437,9 +437,9 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/'
-                                                className={location.pathname === '/' ? 'darkBtn px-3' : location.pathname === '/bridal' ? 'tranparentLightBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/' ? 'darkBtn px-3' : 'lightBtn px-3'}
                                             >
-                                                <span>Women</span> <i class="bi bi-caret-right d-block d-lg-none"></i>
+                                                <span>Women</span> <i className="bi bi-caret-right d-block d-lg-none"></i>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item className='d-grid' onClick={handleShow}>
@@ -449,9 +449,9 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/men'
-                                                className={location.pathname === '/men' ? 'darkBtn px-3' : location.pathname === '/bridal' ? 'tranparentLightBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/men' ? 'darkBtn px-3' : 'lightBtn px-3'}
                                             >
-                                                <span>Men</span> <i class="bi bi-caret-right d-block d-lg-none"></i>
+                                                <span>Men</span> <i className="bi bi-caret-right d-block d-lg-none"></i>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item className='d-grid' onClick={combinedClose}>
@@ -461,7 +461,7 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/bridal'
-                                                className={location.pathname === '/bridal' ? 'darkBtn px-3' : location.pathname === '/bridal' ? 'tranparentLightBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/bridal' ? 'darkBtn px-3' : 'lightBtn px-3'}
                                             >
                                                 Bridal
                                             </Nav.Link>
@@ -473,7 +473,7 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/luxe'
-                                                className={location.pathname === '/luxe' ? 'darkBtn px-3' : location.pathname === '/bridal' ? 'tranparentLightBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/luxe' ? 'darkBtn px-3' : 'lightBtn px-3'}
                                             >
                                                 Luxe
                                             </Nav.Link>

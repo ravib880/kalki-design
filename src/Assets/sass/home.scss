@@ -1,3 +1,31 @@
 @import 'var';
 @import 'mixin';
 
+.main_home {
+    margin-top: 137px;
+    color: $primaryColor;
+    overflow: hidden;
+
+    .carousel {
+        .carousel-inner {
+            .carousel-item {
+                    width: 100%;
+                    img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .main_home{
+        margin-top: 147.6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main_home {
+        margin-top: 131.6px;
+    }
+}

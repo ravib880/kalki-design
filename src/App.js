@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import route from './Routes/routes';
 import Header from './Components/Header';
 import './Assets/sass/style.scss';
+import Footer from './Components/Footer';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 function App() {
@@ -20,6 +23,7 @@ function App() {
             })
           }
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
