@@ -24,7 +24,7 @@ function Header() {
 
     const womenSubHeader = (
         <Container fluid className='sub_heading fw-normal d-grid d-lg-flex justify-content-start justify-content-xxl-between text-uppercase gap-3 py-3 py-lg-0 p-xl-0'>
-            <Link to="/">BestSeller</Link>
+            <Link to="/products">BestSeller</Link>
             <Link to="/saree" onClick={combinedClose}>
                 Saree
                 <ul className='sub_menu fw-bold '>
@@ -541,7 +541,7 @@ function Header() {
                     </div>
                 </Navbar>
             ))}
-            {location.pathname === '/' && (
+            {(location.pathname !== '/men' && location.pathname !== '/bridal')  && (
                 <Navbar className='main_sub_header d-none d-lg-block px-xl-5 py-1'>
                     {womenSubHeader}
                 </Navbar>

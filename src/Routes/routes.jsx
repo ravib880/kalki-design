@@ -1,10 +1,15 @@
 import BridalPage from "../View/Bridal/BridalPage";
 import Home from "../View/Home/Home";
+import ProductListing from "../View/Product/ProductListing";
 
 const route = [
     {
         path: '/',
         element: <Home />
+    },
+    {
+        path: '/products',
+        element: <ProductListing />
     },
     {
         path: '/home',
