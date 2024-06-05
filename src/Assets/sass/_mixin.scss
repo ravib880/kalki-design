@@ -28,3 +28,11 @@
     border-color: $secondaryColor;
     padding: 0.5rem 1rem;
 }
+
+@mixin secondbtn {
+    background-color: $secondaryColor;
+    color: $subSecondoryColor;
+    border-color: $subSecondoryColor;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
