@@ -115,7 +115,6 @@ function ProductListing() {
       ready: true,
       best: true
     },
-
     {
       thubImg: require('../../Assets/Img/blue_fusion_jacket_kurta-sg178678_4_.jpg'),
       hoverImg: require('../../Assets/Img/blue_fusion_jacket_kurta-sg178678_7_.jpg'),
