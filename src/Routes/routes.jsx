@@ -1,3 +1,4 @@
+import OfferBanner from "../Components/OfferBanner";
 import BridalPage from "../View/Bridal/BridalPage";
 import Home from "../View/Home/Home";
 import ProductListing from "../View/Product/ProductListing";
@@ -9,7 +10,7 @@ const route = [
     },
     {
         path: '/products',
-        element: <ProductListing />
+        element: <><OfferBanner/> <ProductListing /></>
     },
     {
         path: '/home',
