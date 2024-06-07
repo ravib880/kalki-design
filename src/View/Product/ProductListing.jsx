@@ -528,15 +528,15 @@ function ProductListing() {
                   return (
                     <Col key={index} className='col-6 col-md-4 col-xl-3'>
                       <div>
-                        <Link to='/products' className='productImage d-flex'>
+                        <Link to='/productdetails' className='productImage d-flex'>
                           <img src={item.thubImg} className='thumbImg' alt="" />
                           <img src={item.hoverImg} className='hoverImg' alt="" />
                           <div className='py-1 text-uppercase'>Shop Now</div>
-                          <span to='/products' className='stretched-link'><i className="bi bi-heart"></i></span>
+                          <span className='stretched-link'><i className="bi bi-heart"></i></span>
                           <section className='px-1 px-md-2  py-1 text-capitalize'>online exclusive</section>
                         </Link>
                         <div className='productContent d-grid'>
-                          <Link to='/products' className='mt-1 mt-sm-2 mb-1'>{item.name}</Link>
+                          <Link to='/productdetails' className='mt-1 mt-sm-2 mb-1'>{item.name}</Link>
                           <section className='fs-16'><span className='fs-14 text-secondary pe-1'>MRP</span>₹{item.price}</section>
                           <section className='d-flex justify-content-start pt-2'>
                             {

@@ -1,6 +1,7 @@
 import OfferBanner from "../Components/OfferBanner";
 import BridalPage from "../View/Bridal/BridalPage";
 import Home from "../View/Home/Home";
+import ProductDetail from "../View/Product/ProductDetail";
 import ProductListing from "../View/Product/ProductListing";
 
 const route = [
@@ -11,6 +12,11 @@ const route = [
     {
         path: '/products',
         element: <><OfferBanner/> <ProductListing /></>
+    },
+    
+    {
+        path: '/productdetails',
+        element: <><OfferBanner/> <ProductDetail /></>
     },
     {
         path: '/home',

@@ -434,6 +434,7 @@ function Header() {
                                             <Nav.Link className={location.pathname === '/' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/'>
                                                 <img src={require('../Assets/Img/pink_resham_work_organza_saree_with_unstitched_blouse-sg227110_1_.jpg')} alt="" />
                                             </Nav.Link>
+                                            
                                             <Nav.Link
                                                 as={Link}
                                                 to='/'
