@@ -200,9 +200,47 @@
         border: 2px solid $primaryColor;
         transition: .3s;
         border-radius: 0.5rem;
+        background-color: transparent;
 
         &:hover {
             @include darkbtn;
+        }
+    }
+}
+
+.customProductSlide {
+    div {
+        a {
+            color: $primaryColor;
+            text-decoration: none;
+
+            p {
+                height: 22px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+.cutomerReview {
+    background-color: #F7F7F7;
+}
+
+.reviewMenu {
+    border-bottom: 1px solid lightgray;
+
+    div {
+        gap: 15px;
+
+        a {
+            color: $primaryColor;
+            padding: 0.5rem 0rem;
+            text-decoration: none;
+            border-bottom: 2px solid $primaryColor;
+        }
+        .questionSection{
+            color: gray;
+            border-bottom-width: 0px;
         }
     }
 }
@@ -354,6 +392,27 @@
 
         select {
             font-size: 12px;
+        }
+    }
+
+    .customProductSlide {
+        div {
+            a {
+                p {
+                    height: 35px;
+                    font-size: 12px;
+                }
+
+                h6 {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .sameCategoryBtn {
+        button {
+            font-size: 14px;
         }
     }
 }

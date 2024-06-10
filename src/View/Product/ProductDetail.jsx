@@ -9,6 +9,9 @@ import { TbCirclePercentage } from "react-icons/tb";
 import { GiReturnArrow } from "react-icons/gi";
 import { RiShieldStarLine } from "react-icons/ri";
 import { CiDeliveryTruck } from "react-icons/ci";
+import SimilarProduct from '../../Components/SimilarProduct';
+import { FaRegStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa6";
 
 function ProductDetail() {
     const [show, setShow] = useState(false);
@@ -397,6 +400,52 @@ function ProductDetail() {
                     </Col>
                 </Row>
             </Container>
+
+            {/* Similar Product List */}
+            <SimilarProduct />
+
+            {/* Customer Review */}
+            <div className='my-5 py-5 cutomerReview'>
+                <Container>
+                    <Row>
+                        <h6 className='text-center text-md-start'>Customer Reviews</h6>
+                        <Col className='col-12 col-md-9 py-4'>
+                            <div className='w-100 text-center text-secondary fs-20'>
+                                <FaRegStar />
+                                <FaRegStar />
+                                <FaRegStar />
+                                <FaRegStar />
+                                <FaRegStar />
+                            </div>
+                        </Col>
+                        <Col className='col-12 col-md-3 py-2 py-md-4'>
+                            <div className='sameCategoryBtn d-flex justify-content-center d-md-grid' style={{ gap: "10px" }}>
+                                <button>Ask a Question</button>
+                                <button>Write a Review</button>
+                            </div>
+                        </Col>
+                        <Col className='col-12 reviewMenu'>
+                            <div className='d-flex'>
+                                <Link className='reviewSection'>Reviews <span>0</span></Link>
+                                <Link className='questionSection'>Questions <span>0</span></Link>
+                            </div>
+                        </Col>
+                        <Col className='py-4'>
+                            <div className='w-100 d-grid text-center text-secondary fs-20'>
+                                <div>
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                </div>
+                                <span className='fs-14 pt-2'>Be the first to review this item</span>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+
         </div>
     );
 }
