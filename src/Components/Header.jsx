@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -16,6 +16,13 @@ function Header() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    useEffect(() => {
+        if (location.pathname !== '/' && location.pathname !== '/home' && location.pathname !== '/women' && location.pathname !== '/men' && location.pathname !== '/bridal' && location.pathname !== '/lux') {
+            handleCloseOffcanvas();
+            handleClose();
+        }
+    }, [location])
 
     const combinedClose = () => {
         handleCloseOffcanvas();
@@ -434,7 +441,7 @@ function Header() {
                                             <Nav.Link className={location.pathname === '/' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/'>
                                                 <img src={require('../Assets/Img/pink_resham_work_organza_saree_with_unstitched_blouse-sg227110_1_.jpg')} alt="" />
                                             </Nav.Link>
-                                            
+
                                             <Nav.Link
                                                 as={Link}
                                                 to='/'
@@ -532,7 +539,7 @@ function Header() {
                             <Link to='/'><i className="bi bi-camera-video"></i></Link>
                             <Link to='/' className='d-none d-sm-block'><i className="bi bi-whatsapp"></i></Link>
                             <Link to='/'><i className="bi bi-person-circle"></i></Link>
-                            <Link to='/'><i className="bi bi-cart"></i></Link>
+                            <Link to='/cart'><i className="bi bi-cart"></i></Link>
                             <Link to='/'><i className="bi bi-heart"></i></Link>
                         </div>
                     </Container>
@@ -542,7 +549,7 @@ function Header() {
                     </div>
                 </Navbar>
             ))}
-            {(location.pathname !== '/men' && location.pathname !== '/bridal')  && (
+            {(location.pathname !== '/men' && location.pathname !== '/bridal') && (
                 <Navbar className='main_sub_header d-none d-lg-block px-xl-5 py-1'>
                     {womenSubHeader}
                 </Navbar>
@@ -552,7 +559,7 @@ function Header() {
                     {menSubHeader}
                 </Navbar>
             )}
-            <div className={location.pathname ==='/bridal'? '':'forMargin'}></div>
+            <div className={location.pathname === '/bridal' ? '' : 'forMargin'}></div>
         </div>
     );
 }
