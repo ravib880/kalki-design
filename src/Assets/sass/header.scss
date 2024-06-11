@@ -299,9 +299,70 @@
     }
 }
 
+.cartItemDisplay {
+    position: relative;
+
+    span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -25%);
+        background-color: $subSecondoryColor;
+        height: 20px;
+        min-width: 20px;
+        text-align: center;
+        border-radius: 50%;
+        color: $secondaryColor;
+        font-size: 12px;
+    }
+}
+
+.cartItemBox {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.cartItemOnly {
+    border-bottom: 1px solid lightgray;
+}
+
+.cartBtn {
+    gap: 10px;
+
+    .checkoutBtn {
+        @include darkbtn;
+        transition: .3s;
+
+        &:hover {
+            @include lightbtn;
+            border: 2px solid $primaryColor;
+        }
+    }
+
+    .inCartBtn {
+        @include lightbtn;
+        transition: .3s;
+        border: 2px solid $primaryColor;
+
+        &:hover {
+            @include darkbtn;
+        }
+    }
+
+    a {
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: 0.5rem;
+        border: 2px solid $primaryColor;
+    }
+}
+
 @media (min-width: 992px) {
-    .offcanvas-backdrop.show {
-        display: none;
+    .offcanvas-backdrop {
+        display: none !important;
     }
 }
 

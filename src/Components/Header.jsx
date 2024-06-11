@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -16,6 +17,11 @@ function Header() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [cartShow, setCartShow] = useState(false);
+
+    const cartHandleClose = () => setCartShow(false);
+    const cartHandleShow = () => setCartShow(true);
 
     useEffect(() => {
         if (location.pathname !== '/' && location.pathname !== '/home' && location.pathname !== '/women' && location.pathname !== '/men' && location.pathname !== '/bridal' && location.pathname !== '/lux') {
@@ -444,7 +450,7 @@ function Header() {
 
                                             <Nav.Link
                                                 as={Link}
-                                                to='/women'
+                                                to='/'
                                                 className={location.pathname === '/' ? 'darkBtn px-3' : 'lightBtn px-3'}
                                             >
                                                 <span>Women</span> <i className="bi bi-caret-right d-block d-lg-none"></i>
@@ -539,8 +545,140 @@ function Header() {
                             <Link to='/'><i className="bi bi-camera-video"></i></Link>
                             <Link to='/' className='d-none d-sm-block'><i className="bi bi-whatsapp"></i></Link>
                             <Link to='/'><i className="bi bi-person-circle"></i></Link>
-                            <Link to='/cart'><i className="bi bi-cart"></i></Link>
-                            <Link to='/'><i className="bi bi-heart"></i></Link>
+                            <Link className='cartItemDisplay' onClick={cartHandleShow} >
+                                <i className="bi bi-cart"></i>
+                                <span>3</span>
+                            </Link>
+                            {/* Cart OffCanvas */}
+                            <Offcanvas show={cartShow} onHide={cartHandleClose} className='ff-lexend' placement={'end'} name={'end'} >
+                                <Offcanvas.Header className='pb-0' closeButton>
+                                    <Offcanvas.Title className='text-capitalize'><h4>your cart<span className='fs-14 ps-2'>(2 items)</span></h4></Offcanvas.Title>
+                                </Offcanvas.Header>
+                                <Offcanvas.Body className='p-0'>
+                                    <Container fluid>
+                                        <Row className='d-grid'>
+                                            <Col className='col-12 cartItemBox'>
+                                                <Row className='py-4 cartItemOnly'>
+                                                    <Col className='col-3'>
+                                                        <Link>
+                                                            <img src={require('../Assets/Img/3-banner-New-in-styles-400x533-14-5-24 (1).jpg')} className='w-100' alt="" />
+                                                        </Link>
+                                                    </Col>
+                                                    <Col className='col-8 ps-0 d-grid gap-2'>
+                                                        <div className='fs-14'>
+                                                            <p className='p-0 m-0 text-capitalize'>
+                                                                <span className='pe-2'>1</span>
+                                                                <span className='pe-2'>X</span>
+                                                                Purple Embroidered Fusion Jacket And Kurta Set
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <h6 className='m-0'>MRP <span>₹11,499.00</span></h6>
+                                                        </div>
+                                                        <div className='d-flex gap-3 text-capitalize'>
+                                                            <section className='px-1 bg-body-secondary fs-14'>
+                                                                select size <span>50</span>
+                                                            </section>
+                                                            <Link className='px-1 bg-body-secondary text-dark fs-14' style={{ textDecoration: "none" }}>
+                                                                Qty: <span>1</span>
+                                                            </Link>
+                                                        </div>
+                                                    </Col>
+                                                    <Col className='col-1 px-2 text-center'>
+                                                        <Link className='text-dark'><i className="bi bi-heart"></i></Link>
+                                                        <hr />
+                                                        <Link className='text-dark'><i className="bi bi-trash3"></i></Link>
+                                                    </Col>
+                                                </Row>
+                                                <Row className='py-4 cartItemOnly'>
+                                                    <Col className='col-3'>
+                                                        <Link>
+                                                            <img src={require('../Assets/Img/3-banner-New-in-styles-400x533-14-5-24 (1).jpg')} className='w-100' alt="" />
+                                                        </Link>
+                                                    </Col>
+                                                    <Col className='col-8 ps-0 d-grid gap-2'>
+                                                        <div className='fs-14'>
+                                                            <p className='p-0 m-0 text-capitalize'>
+                                                                <span className='pe-2'>1</span>
+                                                                <span className='pe-2'>X</span>
+                                                                Purple Embroidered Fusion Jacket And Kurta Set
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <h6 className='m-0'>MRP <span>₹11,499.00</span></h6>
+                                                        </div>
+                                                        <div className='d-flex gap-3 text-capitalize'>
+                                                            <section className='px-1 bg-body-secondary fs-14'>
+                                                                select size <span>50</span>
+                                                            </section>
+                                                            <Link className='px-1 bg-body-secondary text-dark fs-14' style={{ textDecoration: "none" }}>
+                                                                Qty: <span>1</span>
+                                                            </Link>
+                                                        </div>
+                                                    </Col>
+                                                    <Col className='col-1 px-2 text-center'>
+                                                        <Link className='text-dark'><i className="bi bi-heart"></i></Link>
+                                                        <hr />
+                                                        <Link className='text-dark'><i className="bi bi-trash3"></i></Link>
+                                                    </Col>
+                                                </Row>
+                                                <Row className='py-4 cartItemOnly'>
+                                                    <Col className='col-3'>
+                                                        <Link>
+                                                            <img src={require('../Assets/Img/3-banner-New-in-styles-400x533-14-5-24 (1).jpg')} className='w-100' alt="" />
+                                                        </Link>
+                                                    </Col>
+                                                    <Col className='col-8 ps-0 d-grid gap-2'>
+                                                        <div className='fs-14'>
+                                                            <p className='p-0 m-0 text-capitalize'>
+                                                                <span className='pe-2'>1</span>
+                                                                <span className='pe-2'>X</span>
+                                                                Purple Embroidered Fusion Jacket And Kurta Set
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <h6 className='m-0'>MRP <span>₹11,499.00</span></h6>
+                                                        </div>
+                                                        <div className='d-flex gap-3 text-capitalize'>
+                                                            <section className='px-1 bg-body-secondary fs-14'>
+                                                                select size <span>50</span>
+                                                            </section>
+                                                            <Link className='px-1 bg-body-secondary text-dark fs-14' style={{ textDecoration: "none" }}>
+                                                                Qty: <span>1</span>
+                                                            </Link>
+                                                        </div>
+                                                    </Col>
+                                                    <Col className='col-1 px-2 text-center'>
+                                                        <Link className='text-dark'><i className="bi bi-heart"></i></Link>
+                                                        <hr />
+                                                        <Link className='text-dark'><i className="bi bi-trash3"></i></Link>
+                                                    </Col>
+                                                </Row>
+                                            </Col>
+                                            <Col className='col-12 py-5'>
+                                                <div className='d-flex justify-content-between'>
+                                                    <h5 className='text-capitalize'>Subttotal</h5>
+                                                    <h5 className='text-capitalize'>₹20,494.00</h5>
+                                                </div>
+                                                <div className='d-grid pt-3 cartBtn'>
+                                                    <Link className='checkoutBtn' onClick={cartHandleClose}>Continue to checkout</Link>
+                                                    <Link to={'/cart'} className='inCartBtn' onClick={cartHandleClose}>view cart</Link>
+                                                </div>
+                                            </Col>
+                                            <Col className='col-12'>
+                                                <div className='d-grid'>
+                                                    <h5 className='text-capitalize'>We Accept</h5>
+                                                    <img src={require('../Assets/Img/Indian Payment auth.png')} className='w-100' alt="" />
+                                                </div>
+                                            </Col>
+                                        </Row>
+                                    </Container>
+                                </Offcanvas.Body>
+                            </Offcanvas>
+                            <Link className='cartItemDisplay'>
+                                <i className="bi bi-heart"></i>
+                                <span>10</span>
+                            </Link>
                         </div>
                     </Container>
                     <div className='d-flex largesearch d-lg-none w-100 m-2 p-2'>

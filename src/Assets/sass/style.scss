@@ -5,6 +5,7 @@
 @import 'productpage';
 @import 'offerbanner';
 @import 'productDetail';
+@import 'cartpage';
 
 /* roboto-regular - latin */
 @font-face {
@@ -92,4 +93,55 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: $primaryColor;
+}
+
+.bgPink {
+    background-color: #F9EBE0;
+}
+
+.bgSubThemeColor {
+    background-color: $subThemeColor;
+}
+
+.bgPrimaryColor {
+    background-color: $primaryColor;
+}
+
+.bgSecondaryColor {
+    background-color: $secondaryColor;
+}
+
+.bgSubSecondoryColor {
+    background-color: $subSecondoryColor;
+}
+
+.primaryColor {
+    color: $primaryColor;
+}
+
+.secondaryColor {
+    color: $secondaryColor;
+}
+
+.subSecondoryColor {
+    color: $subSecondoryColor;
+}
+
+.darkBtn{
+    @include darkbtn;
+}
+.lightBtn{
+    @include lightbtn;
+}
+
+.semiLightBtn{
+    @include semiLightbtn;
+}
+
+.halfBorderRad{
+    border-radius: 0.5rem;
+}
+
+.fullBorderRad{
+    border-radius: 1rem;
 }

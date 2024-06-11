@@ -17,6 +17,7 @@
 
 @mixin darkbtn {
     background-color: $primaryColor;
+    border-style: solid;
     color: $secondaryColor;
     border-color: $primaryColor;
     padding: 0.5rem 1rem;
@@ -26,11 +27,20 @@
     background-color: $secondaryColor;
     color: $primaryColor;
     border-color: $secondaryColor;
+    border-style: solid;
+    padding: 0.5rem 1rem;
+}
+
+@mixin semiLightbtn {
+    background-color: $subThemeColor;
+    border-style: solid;
+    color: $primaryColor;
     padding: 0.5rem 1rem;
 }
 
 @mixin secondbtn {
     background-color: $secondaryColor;
+    border-style: solid;
     color: $subSecondoryColor;
     border-color: $subSecondoryColor;
     padding: 0.5rem 1rem;
