@@ -10,6 +10,10 @@ const route = [
         element: <Home />
     },
     {
+        path: '/women',
+        element: <Home />
+    },
+    {
         path: '/products',
         element: <><OfferBanner/> <ProductListing /></>
     },

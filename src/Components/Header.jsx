@@ -444,7 +444,7 @@ function Header() {
 
                                             <Nav.Link
                                                 as={Link}
-                                                to='/'
+                                                to='/women'
                                                 className={location.pathname === '/' ? 'darkBtn px-3' : 'lightBtn px-3'}
                                             >
                                                 <span>Women</span> <i className="bi bi-caret-right d-block d-lg-none"></i>
