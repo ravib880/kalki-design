@@ -4,6 +4,8 @@ import CartPage from "../View/Cart/CartPage";
 import Home from "../View/Home/Home";
 import ProductDetail from "../View/Product/ProductDetail";
 import ProductListing from "../View/Product/ProductListing";
+import WishList from "../View/Wishlist/WishList";
+
 
 const route = [
     {
@@ -42,6 +44,10 @@ const route = [
     {
         path: '/cart',
         element: <CartPage />
+    },
+    {
+        path: '/wishlist',
+        element: <WishList />
     },
 ];
 

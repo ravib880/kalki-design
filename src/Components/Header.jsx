@@ -413,10 +413,34 @@ function Header() {
         </Container>
     );
 
+
+
+    const [bgColor, setBgColor] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY >= 750) {
+                setBgColor(true);
+            } else {
+                setBgColor(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
+
     return (
         <div>
             {['lg'].map((expand) => (
-                <Navbar key={expand} expand={expand} className={location.pathname === '/bridal' ? "transparentHeader main_header" : 'main_header'}>
+                <Navbar key={expand} expand={expand} className={location.pathname === '/bridal' ? `transparentHeader ${(bgColor) ? 'newBackCss' : ''} main_header` : 'main_header'}>
                     <Container fluid className='sub_header px-xl-5 d-flex justify-content-between'>
 
                         {/* Left Side */}
@@ -447,11 +471,10 @@ function Header() {
                                             <Nav.Link className={location.pathname === '/' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/'>
                                                 <img src={require('../Assets/Img/pink_resham_work_organza_saree_with_unstitched_blouse-sg227110_1_.jpg')} alt="" />
                                             </Nav.Link>
-
                                             <Nav.Link
                                                 as={Link}
                                                 to='/'
-                                                className={location.pathname === '/' ? 'darkBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/' ? 'darkBtn px-3' : 'hdrLightBtn px-3'}
                                             >
                                                 <span>Women</span> <i className="bi bi-caret-right d-block d-lg-none"></i>
                                             </Nav.Link>
@@ -463,7 +486,7 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/men'
-                                                className={location.pathname === '/men' ? 'darkBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/men' ? 'darkBtn px-3' : 'hdrLightBtn px-3'}
                                             >
                                                 <span>Men</span> <i className="bi bi-caret-right d-block d-lg-none"></i>
                                             </Nav.Link>
@@ -475,7 +498,7 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/bridal'
-                                                className={location.pathname === '/bridal' ? 'darkBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/bridal' ? 'darkBtn px-3' : 'hdrLightBtn px-3'}
                                             >
                                                 Bridal
                                             </Nav.Link>
@@ -487,7 +510,7 @@ function Header() {
                                             <Nav.Link
                                                 as={Link}
                                                 to='/luxe'
-                                                className={location.pathname === '/luxe' ? 'darkBtn px-3' : 'lightBtn px-3'}
+                                                className={location.pathname === '/luxe' ? 'darkBtn px-3' : 'hdrLightBtn px-3'}
                                             >
                                                 Luxe
                                             </Nav.Link>
@@ -549,7 +572,7 @@ function Header() {
                                 <i className="bi bi-cart"></i>
                                 <span>3</span>
                             </Link>
-                            {/* Cart OffCanvas */}
+                            {/* Cart OffCanvas start */}
                             <Offcanvas show={cartShow} onHide={cartHandleClose} className='ff-lexend' placement={'end'} name={'end'} >
                                 <Offcanvas.Header className='pb-0' closeButton>
                                     <Offcanvas.Title className='text-capitalize'><h4>your cart<span className='fs-14 ps-2'>(2 items)</span></h4></Offcanvas.Title>
@@ -675,7 +698,8 @@ function Header() {
                                     </Container>
                                 </Offcanvas.Body>
                             </Offcanvas>
-                            <Link className='cartItemDisplay'>
+                            {/* Cart OffCanvas end */}
+                            <Link className='cartItemDisplay' to='/wishlist'>
                                 <i className="bi bi-heart"></i>
                                 <span>10</span>
                             </Link>

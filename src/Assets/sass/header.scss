@@ -22,6 +22,7 @@
     height: 137px;
 }
 
+
 .transparentHeader {
     background-color: transparent;
     box-shadow: 0 0 0 transparent;
@@ -53,11 +54,11 @@
         background-color: $secondaryColor;
     }
 
-    &:hover .lightBtn {
+    &:hover .hdrLightBtn {
         @include lightbtn;
     }
 
-    .lightBtn {
+    .hdrLightBtn {
         @include darkbtn;
         background-color: transparent;
         transition: 0.5s !important;
@@ -134,6 +135,54 @@
     }
 }
 
+.newBackCss {
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280, 0, 0, 1%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e");
+    }
+
+    background-color: $secondaryColor;
+    box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.1);
+ 
+    .hdrLightBtn {
+        @include lightbtn;
+    }
+
+    .logoimg img {
+        filter: invert(0%);
+    }
+
+    #search {
+        background-color: rgb(255, 255, 255, 0);
+        border-color: $primaryColor;
+        border-style: solid;
+        color: $primaryColor;
+    }
+
+    .content2 {
+        a {
+            i {
+                color: $primaryColor;
+            }
+        }
+    }
+
+
+    .largesearch {
+        background-color: transparent;
+
+        border: 1px solid rgb(0, 0, 0, 1);
+
+        input {
+            background-color: transparent;
+        }
+
+        i {
+            color: $primaryColor;
+        }
+    }
+}
+
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280, 0, 0, 1%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e");
 }
@@ -147,6 +196,7 @@
     z-index: 998;
     background-color: $secondaryColor;
 }
+
 
 .logoimg {
     display: block;
@@ -218,7 +268,7 @@
 }
 
 
-.lightBtn {
+.hdrLightBtn {
     background-color: $secondaryColor;
     color: $primaryColor;
     @include flexwithbetween;
