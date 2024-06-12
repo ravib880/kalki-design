@@ -55,8 +55,8 @@ function Footer() {
                         <div className='d-none d-md-block'>
                             <h4 className='text-uppercase fs-14 pb-3'>About Us</h4>
                             <div className='accordianCnt d-grid text-capitalize gap-1 gap-md-2'>
-                                <Link to='/'>About Us</Link>
-                                <Link to='/'>Contact Us</Link>
+                                <Link to='/about-us'>About Us</Link>
+                                <Link to='/contact'>Contact Us</Link>
                                 <Link to='/'>Blog</Link>
                                 <Link to='/'>Web Stories</Link>
                                 <Link to='/'>Testimonial</Link>
@@ -75,8 +75,8 @@ function Footer() {
                                 <Accordion.Header className='text-uppercase'>About Us</Accordion.Header>
                                 <Accordion.Body>
                                     <div className='accordianCnt d-grid text-capitalize gap-1 gap-md-2'>
-                                        <Link to='/'>About Us</Link>
-                                        <Link to='/'>Contact Us</Link>
+                                        <Link to='/about-us'>About Us</Link>
+                                        <Link to='/contact'>Contact Us</Link>
                                         <Link to='/'>Blog</Link>
                                         <Link to='/'>Web Stories</Link>
                                         <Link to='/'>Testimonial</Link>

@@ -1,6 +1,9 @@
 import OfferBanner from "../Components/OfferBanner";
+import AboutUsPage from "../View/About Us/AboutUsPage";
+import ContactUsPage from "../View/About Us/ContactUsPage";
 import BridalPage from "../View/Bridal/BridalPage";
 import CartPage from "../View/Cart/CartPage";
+import CheckOutPage from "../View/Checkout/CheckOutPage";
 import Home from "../View/Home/Home";
 import ProductDetail from "../View/Product/ProductDetail";
 import ProductListing from "../View/Product/ProductListing";
@@ -48,6 +51,18 @@ const route = [
     {
         path: '/wishlist',
         element: <WishList />
+    },
+    {
+        path: '/about-us',
+        element: <AboutUsPage />
+    },
+    {
+        path: '/contact',
+        element: <ContactUsPage />
+    },
+    {
+        path: '/checkout',
+        element: <CheckOutPage />
     },
 ];
 

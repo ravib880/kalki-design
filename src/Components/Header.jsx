@@ -7,32 +7,30 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
-    const [showOffcanvas, setShowOffcanvas] = useState(false);
 
-    const handleCloseOffcanvas = () => setShowOffcanvas(false);
-    const handleShowOffcanvas = () => setShowOffcanvas(true);
     const location = useLocation();
 
-    const [show, setShow] = useState(false);
+    const [showOffcanvas, setShowOffcanvas] = useState(false);
+    const handleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [show, setShow] = useState(false);
+    const handleNewOffcanvas = () => setShow(!show);
 
     const [cartShow, setCartShow] = useState(false);
 
-    const cartHandleClose = () => setCartShow(false);
-    const cartHandleShow = () => setCartShow(true);
+    const handleCartCanvas = () => setCartShow(!cartShow);
 
     useEffect(() => {
         if (location.pathname !== '/' && location.pathname !== '/home' && location.pathname !== '/women' && location.pathname !== '/men' && location.pathname !== '/bridal' && location.pathname !== '/lux') {
-            handleCloseOffcanvas();
-            handleClose();
+            // if (!['/', '/home', '/women', '/men', '/bridal', '/lux']?.includes(location.pathname)) {
+            setShowOffcanvas(false);
+            setShow(false);
         }
-    }, [location])
+    }, [location.pathname])
 
     const combinedClose = () => {
-        handleCloseOffcanvas();
-        handleClose();
+        setShow(false);
+        setShowOffcanvas(false);
     };
 
     const womenSubHeader = (
@@ -437,6 +435,25 @@ function Header() {
         window.scrollTo(0, 0);
     }, [location.pathname]);
 
+
+    // Use OffCanavs after Media screen less then 992px
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setScreenWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const handleClick = () => {
+        if (screenWidth < 992) {
+            handleNewOffcanvas();
+        }
+    };
+
     return (
         <div>
             {['lg'].map((expand) => (
@@ -446,10 +463,10 @@ function Header() {
                         {/* Left Side */}
 
                         <div className='content1'>
-                            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={handleShowOffcanvas} />
+                            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={handleOffcanvas} />
                             <Navbar.Offcanvas
                                 show={showOffcanvas}
-                                onHide={handleCloseOffcanvas}
+                                onHide={handleOffcanvas}
                                 id={`offcanvasNavbar-expand-${expand}`}
                                 aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                                 placement="start"
@@ -458,7 +475,7 @@ function Header() {
                                     <Offcanvas.Title>
                                         <div className="content2 d-flex justify-content-center">
                                             <Navbar.Brand>
-                                                <Link to="/" className='logoimg' onClick={handleCloseOffcanvas}>
+                                                <Link to="/" className='logoimg' onClick={handleOffcanvas}>
                                                     <img src={require('../Assets/Img/logo.png')} alt="Logo" />
                                                 </Link>
                                             </Navbar.Brand>
@@ -467,7 +484,7 @@ function Header() {
                                 </Offcanvas.Header>
                                 <Offcanvas.Body className='py-1'>
                                     <Nav className="justify-content-between justify-content-lg-start flex-wrap-1 text-uppercase pe-0 pe-lg-3 NavLinkCss">
-                                        <Nav.Item className='d-grid' onClick={handleShow}>
+                                        <Nav.Item className='d-grid' onClick={handleClick}>
                                             <Nav.Link className={location.pathname === '/' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/'>
                                                 <img src={require('../Assets/Img/pink_resham_work_organza_saree_with_unstitched_blouse-sg227110_1_.jpg')} alt="" />
                                             </Nav.Link>
@@ -479,7 +496,7 @@ function Header() {
                                                 <span>Women</span> <i className="bi bi-caret-right d-block d-lg-none"></i>
                                             </Nav.Link>
                                         </Nav.Item>
-                                        <Nav.Item className='d-grid' onClick={handleShow}>
+                                        <Nav.Item className='d-grid' onClick={handleClick}>
                                             <Nav.Link className={location.pathname === '/men' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/men'>
                                                 <img src={require('../Assets/Img/250x350-desk-mens-15-05-24.jpg')} alt="" />
                                             </Nav.Link>
@@ -518,12 +535,12 @@ function Header() {
                                     </Nav>
                                 </Offcanvas.Body>
                                 {/* New Canvas */}
-                                <Offcanvas show={show} className="d-block d-lg-none" onHide={handleClose} placement="end">
+                                <Offcanvas show={show} className="d-block d-lg-none" onHide={handleNewOffcanvas} placement="end">
                                     <Offcanvas.Header closeButton>
                                         <Offcanvas.Title>
                                             <div className="content2 d-flex justify-content-center">
                                                 <Navbar.Brand>
-                                                    <Link to='/' className='logoimg' onClick={handleClose}>
+                                                    <Link to='/' className='logoimg' onClick={handleNewOffcanvas}>
                                                         <img src={require('../Assets/Img/logo.png')} alt="Logo" />
                                                     </Link>
                                                 </Navbar.Brand>
@@ -568,12 +585,12 @@ function Header() {
                             <Link to='/'><i className="bi bi-camera-video"></i></Link>
                             <Link to='/' className='d-none d-sm-block'><i className="bi bi-whatsapp"></i></Link>
                             <Link to='/'><i className="bi bi-person-circle"></i></Link>
-                            <Link className='cartItemDisplay' onClick={cartHandleShow} >
+                            <Link className='cartItemDisplay' onClick={handleCartCanvas} >
                                 <i className="bi bi-cart"></i>
                                 <span>3</span>
                             </Link>
                             {/* Cart OffCanvas start */}
-                            <Offcanvas show={cartShow} onHide={cartHandleClose} className='ff-lexend' placement={'end'} name={'end'} >
+                            <Offcanvas show={cartShow} onHide={handleCartCanvas} className='ff-lexend' placement={'end'} name={'end'} >
                                 <Offcanvas.Header className='pb-0' closeButton>
                                     <Offcanvas.Title className='text-capitalize'><h4>your cart<span className='fs-14 ps-2'>(2 items)</span></h4></Offcanvas.Title>
                                 </Offcanvas.Header>
@@ -684,8 +701,8 @@ function Header() {
                                                     <h5 className='text-capitalize'>₹20,494.00</h5>
                                                 </div>
                                                 <div className='d-grid pt-3 cartBtn'>
-                                                    <Link className='checkoutBtn' onClick={cartHandleClose}>Continue to checkout</Link>
-                                                    <Link to={'/cart'} className='inCartBtn' onClick={cartHandleClose}>view cart</Link>
+                                                    <Link to='/checkout' className='checkoutBtn' onClick={handleCartCanvas}>Continue to checkout</Link>
+                                                    <Link to={'/cart'} className='inCartBtn' onClick={handleCartCanvas}>view cart</Link>
                                                 </div>
                                             </Col>
                                             <Col className='col-12'>

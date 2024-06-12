@@ -136,7 +136,7 @@ function CartPage() {
                             </div>
                         </div>
                         <div className='d-grid finalCheckOutBtn p-3 pt-1 pt-md-3 pb-0 pb-md-2 text-center footerForCart'>
-                            <button className='mt-2 halfBorderRad'>Proceed to checkout</button>
+                            <Link to='/checkout' className='mt-2 halfBorderRad'>Proceed to checkout</Link>
                             <h5 className='fs-18 pt-1 pt-md-3 m-0'>48 Hours Easy Returns</h5>
                             <div>
                                 <img src={require('../../Assets/Img/Indian Payment auth.png')} alt="" />
