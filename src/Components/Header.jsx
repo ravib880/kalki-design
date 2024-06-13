@@ -5,24 +5,37 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link, useLocation } from 'react-router-dom';
+import Modal from 'react-bootstrap/Modal';
+import { IoWalletOutline } from "react-icons/io5";
 
 function Header() {
 
     const location = useLocation();
 
+    // For All three Offcanvas's
+
+    // category Offcanvas
     const [showOffcanvas, setShowOffcanvas] = useState(false);
     const handleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
 
+    // sub category Offcanvas
     const [show, setShow] = useState(false);
     const handleNewOffcanvas = () => setShow(!show);
 
+    // cart Offcanvas
     const [cartShow, setCartShow] = useState(false);
-
     const handleCartCanvas = () => setCartShow(!cartShow);
 
+    // signin modal
+    const [showSignIn, setShowSignIn] = useState(false);
+    const handleSignIn = () => setShowSignIn(!showSignIn);
+
+    // signin modal
+    const [showLogin, setShowLogin] = useState(false);
+    const handleLogin = () => setShowLogin(!showLogin);
+
     useEffect(() => {
-        if (location.pathname !== '/' && location.pathname !== '/home' && location.pathname !== '/women' && location.pathname !== '/men' && location.pathname !== '/bridal' && location.pathname !== '/lux') {
-            // if (!['/', '/home', '/women', '/men', '/bridal', '/lux']?.includes(location.pathname)) {
+        if (!['/', '/home', '/women', '/men', '/bridal', '/lux']?.includes(location.pathname)) {
             setShowOffcanvas(false);
             setShow(false);
         }
@@ -454,6 +467,11 @@ function Header() {
         }
     };
 
+    const changeModal = () => {
+        handleSignIn();
+        handleLogin();
+    }
+
     return (
         <div>
             {['lg'].map((expand) => (
@@ -582,13 +600,126 @@ function Header() {
                                     <i className="bi bi-search"></i>
                                 </label>
                             </div>
-                            <Link to='/'><i className="bi bi-camera-video"></i></Link>
+                            <Link to='/user' className='custom-user-box bi bi-person-circle'>
+                                <div className='custom-user-list fs-md-12'>
+                                    <Link to='/user'>Welcome <span>user!</span></Link>
+                                    <Link to='/user/account'><i className='bi bi-person-circle'></i> <span>Account Details</span></Link>
+                                    <Link to='/user/orders'><IoWalletOutline /> <span>Order History</span></Link>
+                                    <Link to='/wishlist'><i className="bi bi-heart"></i> <span>Wishlist</span></Link>
+                                    <Link to='/' className='text-danger'>Sign Out</Link>
+                                </div>
+                            </Link>
                             <Link to='/' className='d-none d-sm-block'><i className="bi bi-whatsapp"></i></Link>
-                            <Link to='/'><i className="bi bi-person-circle"></i></Link>
+
+                            {/* Login / Sign In modal */}
+                            <Link onClick={handleSignIn}><i className="bi bi-person-circle"></i></Link>
+                            {/* Login modal */}
+                            <Modal show={showSignIn} onHide={handleSignIn} className='custom-login-modal ff-lexend'>
+                                <Modal.Body>
+                                    <i className="bi bi-x-lg custom-close-btn" onClick={handleSignIn}></i>
+                                    <Container fluid>
+                                        <Row className='custom-backimage-modal'>
+                                            <Col xs='12' md='5' className='p-0 modal-page-one'>
+                                                <div className='p-4 py-md-5 content d-grid'>
+                                                    <h2>Register & Be A Part Of The KALKI Circle!</h2>
+
+                                                    <h6 className='pt-2 pt-md-4'>Enjoy exclusive benefits like:</h6>
+                                                    <ul>
+                                                        <li>Get 15% off on your first order* | <b>Use code: INDIA15</b></li>
+                                                        <li>Exclusive early collection showcase</li>
+                                                        <li>Access amazing offers, discounts and more</li>
+                                                    </ul>
+                                                    <h6>Join Now !</h6>
+                                                    <span className='text-end fs-12'>T & C Apply</span>
+                                                </div>
+                                            </Col>
+                                            <Col xs='12' md='7' className='p-0 modal-page-two'>
+                                                <div className='p-3 px-md-4 py-md-5 d-grid'>
+                                                    <h5 className='text-center'>Sign Up</h5>
+                                                    <span className='text-center fs-12'>Welcome to Kalki! It's quick and easy to set up an account</span>
+                                                    <div className='d-grid pt-2 pt-md-4 custom-login-form'>
+                                                        <input type="text" placeholder='Enter First Name *' />
+                                                        <input type="text" placeholder='Enter Last Name *' />
+                                                        <input type="email" placeholder='Enter Email Address *' />
+                                                        <div className='d-flex'>
+                                                            <select name="" id="">
+                                                                <option value="">+91</option>
+                                                                <option value="">+46</option>
+                                                                <option value="">+84</option>
+                                                                <option value="">+45</option>
+                                                            </select>
+                                                            <input type="number" placeholder='Phone Number *' className='w-100' />
+                                                        </div>
+                                                        <input type="password" placeholder='Enter Password *' />
+                                                        <Link className='text-uppercase custom-next-btn text-center halfBorderRad'>Next</Link>
+                                                        <span className='text-center fs-md-12'>By continuing, I agree to the Terms of Use and Privacy Policy</span>
+                                                        <div className='custom-social-login'>
+                                                            <Link><i className="bi bi-facebook"></i></Link>
+                                                            <Link><i className="bi bi-google"></i></Link>
+                                                        </div>
+                                                        <hr />
+                                                        <div className='flex-center'>
+                                                            <span>Already Have an account?</span>
+                                                            <Link onClick={changeModal}>Log in</Link>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Col>
+                                        </Row>
+                                    </Container>
+                                </Modal.Body>
+                            </Modal>
+                            {/* Sign In modal */}
+                            <Modal show={showLogin} onHide={handleLogin} className='custom-login-modal ff-lexend'>
+                                <Modal.Body>
+                                    <i className="bi bi-x-lg custom-close-btn" onClick={handleLogin}></i>
+                                    <Container fluid>
+                                        <Row className='custom-backimage-modal'>
+                                            <Col xs='12' md='5' className='p-0 modal-page-one'>
+                                                <div className='p-4 py-md-5 content d-grid'>
+                                                    <h2>Register & Be A Part Of The KALKI Circle!</h2>
+
+                                                    <h6 className='pt-2 pt-md-4'>Enjoy exclusive benefits like:</h6>
+                                                    <ul>
+                                                        <li>Get 15% off on your first order* | <b>Use code: INDIA15</b></li>
+                                                        <li>Exclusive early collection showcase</li>
+                                                        <li>Access amazing offers, discounts and more</li>
+                                                    </ul>
+                                                    <h6>Join Now !</h6>
+                                                    <span className='text-end fs-12'>T & C Apply</span>
+                                                </div>
+                                            </Col>
+                                            <Col xs='12' md='7' className='p-0 modal-page-two'>
+                                                <div className='p-3 px-md-4 py-md-5 d-grid'>
+                                                    <h5 className='text-center'>Log In</h5>
+                                                    <span className='text-center fs-12'>Sign in so you can save items to your wishlists, track your orders , and checkout faster!</span>
+                                                    <div className='d-grid pt-2 pt-md-4 custom-login-form'>
+                                                        <input type="email" placeholder='Enter Email Address *' />
+                                                        <input type="password" placeholder='Enter Password *' />
+                                                        <Link className='text-uppercase custom-next-btn text-center halfBorderRad'>Log In</Link>
+                                                        <Link className='text-dark text-center fs-md-12'>Forgot Password?</Link>
+                                                        <div className='custom-social-login'>
+                                                            <Link><i className="bi bi-facebook"></i></Link>
+                                                            <Link><i className="bi bi-google"></i></Link>
+                                                        </div>
+                                                        <hr />
+                                                        <div className='flex-center'>
+                                                            <span>Don't have an account?</span>
+                                                            <Link onClick={changeModal}>Sign in</Link>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Col>
+                                        </Row>
+                                    </Container>
+                                </Modal.Body>
+                            </Modal>
+
                             <Link className='cartItemDisplay' onClick={handleCartCanvas} >
                                 <i className="bi bi-cart"></i>
                                 <span>3</span>
                             </Link>
+
                             {/* Cart OffCanvas start */}
                             <Offcanvas show={cartShow} onHide={handleCartCanvas} className='ff-lexend' placement={'end'} name={'end'} >
                                 <Offcanvas.Header className='pb-0' closeButton>
@@ -716,6 +847,7 @@ function Header() {
                                 </Offcanvas.Body>
                             </Offcanvas>
                             {/* Cart OffCanvas end */}
+
                             <Link className='cartItemDisplay' to='/wishlist'>
                                 <i className="bi bi-heart"></i>
                                 <span>10</span>

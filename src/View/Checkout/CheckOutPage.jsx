@@ -67,7 +67,7 @@ function CheckOutPage() {
                             </div>
                         </div>
                         <div className='px-2 text-center custom-order'>
-                            <Link className='text-uppercase halfBorderRad'>Order Confirm</Link>
+                            <Link to={'/'} className='text-uppercase halfBorderRad'>Order Confirm</Link>
                         </div>
                     </Col>
                 </Row>

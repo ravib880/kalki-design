@@ -8,6 +8,7 @@ import Home from "../View/Home/Home";
 import ProductDetail from "../View/Product/ProductDetail";
 import ProductListing from "../View/Product/ProductListing";
 import WishList from "../View/Wishlist/WishList";
+import IndexRoutes from "./User/IndexRoutes";
 
 
 const route = [
@@ -63,6 +64,10 @@ const route = [
     {
         path: '/checkout',
         element: <CheckOutPage />
+    },
+    {
+        path: '/user/*',
+        element: <IndexRoutes />
     },
 ];
 

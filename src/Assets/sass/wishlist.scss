@@ -7,7 +7,7 @@
     }
 }
 
-.boxBorder{
+.boxBorder {
     border: 1px solid rgb(237, 237, 237);
 }
 
@@ -39,7 +39,8 @@
         right: 4%;
         position: absolute;
         font-size: 20px;
-        i{
+
+        i {
             text-shadow: 0px 0px 10px $primaryColor;
         }
     }
@@ -61,16 +62,19 @@
     &:hover .wishHoverImg {
         display: block;
     }
-
-    .wishThumbImg {
+    img{
         width: 100%;
+        height: auto;
+        /* Maintain aspect ratio */
+        max-width: 100%;
+        max-height: 100%;
         object-fit: cover;
+    }
+    .wishThumbImg {
         display: block;
     }
 
     .wishHoverImg {
-        width: 100%;
-        object-fit: cover;
         display: none;
     }
 }

@@ -10,6 +10,7 @@
 @import 'aboutus';
 @import 'contactus';
 @import 'checkout';
+@import 'user';
 
 /* roboto-regular - latin */
 @font-face {
@@ -125,6 +126,10 @@
 
 .secondaryColor {
     color: $secondaryColor;
+}
+
+.subThemeColor {
+    color: $subThemeColor;
 }
 
 .subSecondoryColor {
