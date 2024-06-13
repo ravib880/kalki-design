@@ -6,8 +6,8 @@ function OfferBanner() {
         <div className='main_offerBanner'>
             <Container className='py-4 pt-lg-5'>
                 <Row className='offerBanner'>
-                    <Col className='col-12 col-md-4 py-3 px-0 d-flex justify-content-center justify-content-md-end imgStyle'>
-                        <img src={require('../Assets/Img/summerfest-offer-new2.png')} className='h-100' alt="" />
+                    <Col className='col-12 col-md-4 py-3 px-0 d-flex justify-content-center justify-content-md-center imgStyle'>
+                        <img src={require('../Assets/Img/carnival-new-logo-sale2.webp')} className='h-100' alt="" />
                     </Col>
                     <Col className='col-12 col-md-8 d-grid px-0 d-md-flex align-items-center text-center'>
                         <div className='offerBorder'></div>

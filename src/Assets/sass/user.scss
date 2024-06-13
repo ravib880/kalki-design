@@ -74,3 +74,45 @@
         }
     }
 }
+
+.custom-login-form {
+    gap: 1rem;
+
+    input,
+    textarea {
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid lightgray;
+        font-size: 14px;
+    }
+
+    .custom-next-btn {
+        text-decoration: none;
+        @include darkbtn;
+        border: 1px solid $primaryColor;
+        transition: .3s;
+
+        &:hover {
+            @include lightbtn;
+            border: 1px solid $primaryColor;
+        }
+    }
+}
+
+.custom-order-style {
+    svg {
+        font-size: 75px;
+    }
+
+    a {
+        @include lightbtn;
+        border: 1px solid $primaryColor;
+        text-decoration: none;
+        color: $primaryColor;
+        transition: .3s;
+
+        &:hover {
+            @include darkbtn;
+        }
+    }
+}
