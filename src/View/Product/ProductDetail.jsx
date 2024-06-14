@@ -12,6 +12,7 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import SimilarProduct from '../../Components/SimilarProduct';
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
+import ReactImageMagnify from 'react-image-magnify';
 
 function ProductDetail() {
     const [show, setShow] = useState(false);
@@ -139,12 +140,33 @@ function ProductDetail() {
                                     </div>
                                 ))}
                             </Slider>
-                            <Slider asNavFor={nav2} ref={slider => (sliderRef1 = slider)} fade={true} className='col-12 col-lg-10 text-center'>
+                            {/* <Slider asNavFor={nav2} ref={slider => (sliderRef1 = slider)} fade={true} className='col-12 col-lg-10 text-center'>
                                 {imgList.map((item, index) => (
                                     <div key={index}>
                                         <img src={item.img} alt='' className='w-100' />
                                     </div>
                                 ))}
+                            </Slider> */}
+                            <Slider asNavFor={nav2} ref={slider => (sliderRef1 = slider)} fade={true} className='col-12 col-lg-10 text-center'>
+                                {imgList.map((item, index) => {
+                                    return (
+                                        <div className='magnify-image'>
+                                            <ReactImageMagnify {...{
+                                                smallImage: {
+                                                    alt: 'Wristwatch by Ted Baker London',
+                                                    isFluidWidth: true,
+                                                    src: item.img,
+                                                    width: 300
+                                                },
+                                                largeImage: {
+                                                    src: item.img,
+                                                    width: 400,
+                                                    height: 700
+                                                }
+                                            }} />
+                                        </div>
+                                    )
+                                })}
                             </Slider>
                             <Slider asNavFor={nav1} ref={slider => (sliderRef2 = slider)} className='customSlider d-block d-lg-none col-12 col-lg-2 text-center' {...settings}>
                                 {imgList.map((item, index) => (

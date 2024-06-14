@@ -7,10 +7,33 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link, useLocation } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import { IoWalletOutline } from "react-icons/io5";
+import headerContent from '../Config/HeaderContent';
 
 function Header() {
 
+    const [margin, setMargin] = useState(true);
+    const [newMargin, setNewMargin] = useState(true);
     const location = useLocation();
+
+    useEffect(() => {
+        const check = headerContent.find(item => item.value === location.pathname && location.pathname !== '/bridal')
+        const newCheck = headerContent.find(item => location.pathname === item.value)
+        if (check) {
+            setMargin(true);
+        }
+        else {
+            setMargin(false);
+        }
+        if (!newCheck?.data) {
+            setNewMargin(true);
+            setMargin(false);
+        }
+        else {
+            setNewMargin(false);
+        }
+
+
+    }, [location.pathname, margin]);
 
     // For All three Offcanvas's
 
@@ -45,386 +68,6 @@ function Header() {
         setShow(false);
         setShowOffcanvas(false);
     };
-
-    const womenSubHeader = (
-        <Container fluid className='sub_heading fw-normal d-grid d-lg-flex justify-content-start justify-content-xxl-between text-uppercase gap-3 py-3 py-lg-0 p-xl-0'>
-            <Link to="/products">BestSeller</Link>
-            <Link to="/saree" onClick={combinedClose}>
-                Saree
-                <ul className='sub_menu fw-bold '>
-                    <li>
-                        Style
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>See All Saree</li>
-                            <li>Ready to Ship Saree</li>
-                            <li>Embroidered Saree</li>
-                            <li>Designer Saree</li>
-                            <li>Sequin Saree</li>
-                            <li>Ready Pleated Saree</li>
-                            <li>Plain Saree with Border</li>
-                            <li>Plain Saree</li>
-                            <li>Classic Saree</li>
-                            <li>Printed Saree</li>
-                            <li>Embellished Saree</li>
-                            <li>Handloom Saree</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Occasion
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Bridal Saree</li>
-                            <li>Party Wear Saree</li>
-                            <li>Wedding Saree</li>
-                            <li>Festive Saree</li>
-                            <li>Haldi Saree</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Fabric
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Organza Saree</li>
-                            <li>Tissue Saree</li>
-                            <li>Linen Sarees</li>
-                            <li>Banarasi Saree</li>
-                            <li>Silk Saree</li>
-                            <li>Chiffon Saree</li>
-                            <li>Georgette Saree</li>
-                            <li>Satin Saree</li>
-                            <li>Chanderi Saree</li>
-                            <li>Chikankari Sarees</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Quick Link
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Shape Wear</li>
-                            <li>Saree under INR 12000</li>
-                            <li>Ready Blouse Saree</li>
-                            <li>Best Sellers Saree</li>
-                            <li>Saree Blouse</li>
-                            <li>Sale Saree</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Color
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Black Saree</li>
-                            <li>Pink Saree</li>
-                            <li>Red Saree</li>
-                            <li>Green Saree</li>
-                            <li>Blue Saree</li>
-                        </ul>
-                    </li>
-                    <li className='catImage'>
-                        <img src={require('../Assets/Img/pink_resham_work_organza_saree_with_unstitched_blouse-sg227110_11_.jpg')} alt="" />
-                    </li>
-                </ul>
-            </Link>
-            <Link to="/" onClick={combinedClose}>
-                Salwar Kameez
-                <ul className='sub_menu fw-bold '>
-                    <li>
-                        Style
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>See All salavar kameez</li>
-                            <li>Ready to Ship salavar kameez</li>
-                            <li>Embroidered salavar kameez</li>
-                            <li>Designer salavar kameez</li>
-                            <li>Sequin salavar kameez</li>
-                            <li>Ready Pleated salavar kameez</li>
-                            <li>Plain salavar kameez with Border</li>
-                            <li>Plain salavar kameez</li>
-                            <li>Classic salavar kameez</li>
-                            <li>Printed salavar kameez</li>
-                            <li>Embellished salavar kameez</li>
-                            <li>Handloom salavar kameez</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Occasion
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Bridal salavar kameez</li>
-                            <li>Party Wear salavar kameez</li>
-                            <li>Wedding salavar kameez</li>
-                            <li>Festive salavar kameez</li>
-                            <li>Haldi salavar kameez</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Fabric
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Organza salavar kameez</li>
-                            <li>Tissue salavar kameez</li>
-                            <li>Linen salavar kameezs</li>
-                            <li>Banarasi salavar kameez</li>
-                            <li>Silk salavar kameez</li>
-                            <li>Chiffon salavar kameez</li>
-                            <li>Georgette salavar kameez</li>
-                            <li>Satin salavar kameez</li>
-                            <li>Chanderi salavar kameez</li>
-                            <li>Chikankari salavar kameezs</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Quick Link
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Shape Wear</li>
-                            <li>salavar kameez under INR 12000</li>
-                            <li>Ready Blouse salavar kameez</li>
-                            <li>Best Sellers salavar kameez</li>
-                            <li>salavar kameez Blouse</li>
-                            <li>Sale salavar kameez</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Color
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Black salavar kameez</li>
-                            <li>Pink salavar kameez</li>
-                            <li>Red salavar kameez</li>
-                            <li>Green salavar kameez</li>
-                            <li>Blue salavar kameez</li>
-                        </ul>
-                    </li>
-                    <li className='catImage'>
-                        <img src={require('../Assets/Img/pink_embroidered_choli_with_exquisite_lehenga_an-sg220433_6_.jpg')} alt="" />
-                    </li>
-                </ul>
-            </Link>
-            <Link to="/" onClick={combinedClose}>
-                Lehengas
-                <ul className='sub_menu fw-bold '>
-                    <li>
-                        Style
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>See All lehengas</li>
-                            <li>Ready to Ship lehengas</li>
-                            <li>Embroidered lehengas</li>
-                            <li>Designer lehengas</li>
-                            <li>Sequin lehengas</li>
-                            <li>Ready Pleated lehengas</li>
-                            <li>Plain lehengas with Border</li>
-                            <li>Plain lehengas</li>
-                            <li>Classic lehengas</li>
-                            <li>Printed lehengas</li>
-                            <li>Embellished lehengas</li>
-                            <li>Handloom lehengas</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Occasion
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Bridal lehengas</li>
-                            <li>Party Wear lehengas</li>
-                            <li>Wedding lehengas</li>
-                            <li>Festive lehengas</li>
-                            <li>Haldi lehengas</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Fabric
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Organza lehengas</li>
-                            <li>Tissue lehengas</li>
-                            <li>Linen lehengass</li>
-                            <li>Banarasi lehengas</li>
-                            <li>Silk lehengas</li>
-                            <li>Chiffon lehengas</li>
-                            <li>Georgette lehengas</li>
-                            <li>Satin lehengas</li>
-                            <li>Chanderi lehengas</li>
-                            <li>Chikankari lehengass</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Quick Link
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Shape Wear</li>
-                            <li>lehengas under INR 12000</li>
-                            <li>Ready Blouse lehengas</li>
-                            <li>Best Sellers lehengas</li>
-                            <li>lehengas Blouse</li>
-                            <li>Sale lehengas</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Color
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Black lehengas</li>
-                            <li>Pink lehengas</li>
-                            <li>Red lehengas</li>
-                            <li>Green lehengas</li>
-                            <li>Blue lehengas</li>
-                        </ul>
-                    </li>
-                    <li className='catImage'>
-                        <img src={require('../Assets/Img/multicolor_embroidered_lehenga_set_with_sequin_work-sg195857_7_.jpg')} alt="" />
-                    </li>
-                </ul>
-            </Link>
-            <Link to="/" onClick={combinedClose}>Co-ords sets</Link>
-            <Link to="/" onClick={combinedClose}>Kurtis</Link>
-            <Link to="/" onClick={combinedClose}>Blouse</Link>
-            <Link to="/" onClick={combinedClose}>Bridal</Link>
-            <Link to="/" onClick={combinedClose}>Men</Link>
-            <Link to="/" onClick={combinedClose}>
-                Kids
-                <ul className='sub_menu fw-bold '>
-                    <li>
-                        Boys
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>See All</li>
-                            <li>Kurtas Set</li>
-                            <li>Nehru Jacket Sets</li>
-                            <li>Sherwani</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Girls
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>See All</li>
-                            <li>Lehengas</li>
-                            <li>Gowns</li>
-                            <li>Salwar Kameez</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Occasion
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Wedding</li>
-                            <li>Festivals</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Quick Link
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Offers on Kid's Wear</li>
-                            <li>Trending Kid's Wear</li>
-                        </ul>
-                    </li>
-                    <li className='catImage'>
-                        <img src={require('../Assets/Img/250x350-desk-kids-15-05-24.jpg')} alt="" />
-                    </li>
-                </ul>
-            </Link>
-            <Link to="/" onClick={combinedClose}>Weaves</Link>
-            <Link to="/" onClick={combinedClose}>Accessories</Link>
-            <Link to="/" onClick={combinedClose}>Collection</Link>
-            <Link to="/" onClick={combinedClose}>New</Link>
-            <Link to="/" onClick={combinedClose}>
-                Sale
-                <ul className='sub_menu fw-bold '>
-                    <li>
-                        Style
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>See All lehengas</li>
-                            <li>Ready to Ship lehengas</li>
-                            <li>Embroidered lehengas</li>
-                            <li>Designer lehengas</li>
-                            <li>Sequin lehengas</li>
-                            <li>Ready Pleated lehengas</li>
-                            <li>Plain lehengas with Border</li>
-                            <li>Plain lehengas</li>
-                            <li>Classic lehengas</li>
-                            <li>Printed lehengas</li>
-                            <li>Embellished lehengas</li>
-                            <li>Handloom lehengas</li>
-                        </ul>
-                    </li>
-                    <li className='catImage'>
-                        <img src={require('../Assets/Img/wine_organza_saree_with_unstitched_blouse-sg214665_11_.jpg')} alt="" />
-                    </li>
-                </ul>
-            </Link>
-        </Container>
-    );
-
-    const menSubHeader = (
-        <Container fluid className='sub_heading fw-normal d-grid d-lg-flex justify-content-start justify-content-xxl-between text-uppercase gap-3 py-3 py-lg-0 p-xl-0'>
-            <Link to="/men" onClick={combinedClose}>See all</Link>
-            <Link to="/" onClick={combinedClose}>
-                Kurta jacket set
-                <ul className='sub_menu fw-bold '>
-                    <li>
-                        Style
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>See All Saree</li>
-                            <li>Ready to Ship Saree</li>
-                            <li>Embroidered Saree</li>
-                            <li>Designer Saree</li>
-                            <li>Sequin Saree</li>
-                            <li>Ready Pleated Saree</li>
-                            <li>Plain Saree with Border</li>
-                            <li>Plain Saree</li>
-                            <li>Classic Saree</li>
-                            <li>Printed Saree</li>
-                            <li>Embellished Saree</li>
-                            <li>Handloom Saree</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Occasion
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Bridal Saree</li>
-                            <li>Party Wear Saree</li>
-                            <li>Wedding Saree</li>
-                            <li>Festive Saree</li>
-                            <li>Haldi Saree</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Fabric
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Organza Saree</li>
-                            <li>Tissue Saree</li>
-                            <li>Linen Sarees</li>
-                            <li>Banarasi Saree</li>
-                            <li>Silk Saree</li>
-                            <li>Chiffon Saree</li>
-                            <li>Georgette Saree</li>
-                            <li>Satin Saree</li>
-                            <li>Chanderi Saree</li>
-                            <li>Chikankari Sarees</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Quick Link
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Shape Wear</li>
-                            <li>Saree under INR 12000</li>
-                            <li>Ready Blouse Saree</li>
-                            <li>Best Sellers Saree</li>
-                            <li>Saree Blouse</li>
-                            <li>Sale Saree</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Color
-                        <ul className='peta_menu p-0 pt-3 text-capitalize fw-light'>
-                            <li>Black Saree</li>
-                            <li>Pink Saree</li>
-                            <li>Red Saree</li>
-                            <li>Green Saree</li>
-                            <li>Blue Saree</li>
-                        </ul>
-                    </li>
-                    <li className='catImage'>
-                        <img src={require('../Assets/Img/250x350-desk-mens-15-05-24.jpg')} alt="" />
-                    </li>
-                </ul>
-            </Link>
-            <Link to="/" onClick={combinedClose}>Kurta sets</Link>
-            <Link to="/" onClick={combinedClose}>Tuxedos</Link>
-            <Link to="/" onClick={combinedClose}>Jodhpuris</Link>
-            <Link to="/" onClick={combinedClose}>Sherwanis</Link>
-            <Link to="/" onClick={combinedClose}>Indowestern</Link>
-            <Link to="/" onClick={combinedClose}>New arrival</Link>
-            <Link to="/" onClick={combinedClose}>Sale</Link>
-            <Link to="/" onClick={combinedClose}>Kids</Link>
-        </Container>
-    );
-
-
 
     const [bgColor, setBgColor] = useState(false);
 
@@ -472,6 +115,55 @@ function Header() {
         handleLogin();
     }
 
+    // Form validation
+
+    const [err, setErr] = useState({});
+
+    const [formData, setformData] = useState({
+        fname: '',
+        lname: '',
+        mobile: '',
+        email: '',
+        password: ''
+    });
+    
+    const checkValidation = (obj) => {
+        err[obj?.key] = '';
+        if (!obj?.value?.match(obj?.pattern)) {
+            if(obj.key === 'email'){
+                err[obj.key] = "Invalid Email Id";
+            }
+            else if(obj.key === 'password'){
+                err[obj.key] = "Minimum of different classes of characters in password is 8. Classes of characters: Lower Case, Upper Case, Digits, Special Characters.";
+            }
+            else{
+                err[obj.key] = "Invalid Pattern";
+            }
+        }
+        setErr({ ...err });
+        setformData((preData) => ({
+            ...preData,
+            [obj.key]: obj.value
+        }))
+    }
+
+    const handleFocus = (obj) => {
+        if (obj.value === '') {
+            setErr((prevData) => ({
+                ...prevData,
+                [obj.key]: "This is Required"
+            }))
+        }
+    }
+
+    const storeData = () => {
+
+        if (Object.values(err).every((item) => item === '') && Object.values(formData).every((item) => item !== '')) {
+            handleSignIn();
+        }
+
+    }
+
     return (
         <div>
             {['lg'].map((expand) => (
@@ -502,54 +194,24 @@ function Header() {
                                 </Offcanvas.Header>
                                 <Offcanvas.Body className='py-1'>
                                     <Nav className="justify-content-between justify-content-lg-start flex-wrap-1 text-uppercase pe-0 pe-lg-3 NavLinkCss">
-                                        <Nav.Item className='d-grid' onClick={handleClick}>
-                                            <Nav.Link className={location.pathname === '/' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/'>
-                                                <img src={require('../Assets/Img/pink_resham_work_organza_saree_with_unstitched_blouse-sg227110_1_.jpg')} alt="" />
-                                            </Nav.Link>
-                                            <Nav.Link
-                                                as={Link}
-                                                to='/'
-                                                className={location.pathname === '/' ? 'darkBtn px-3' : 'hdrLightBtn px-3'}
-                                            >
-                                                <span>Women</span> <i className="bi bi-caret-right d-block d-lg-none"></i>
-                                            </Nav.Link>
-                                        </Nav.Item>
-                                        <Nav.Item className='d-grid' onClick={handleClick}>
-                                            <Nav.Link className={location.pathname === '/men' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/men'>
-                                                <img src={require('../Assets/Img/250x350-desk-mens-15-05-24.jpg')} alt="" />
-                                            </Nav.Link>
-                                            <Nav.Link
-                                                as={Link}
-                                                to='/men'
-                                                className={location.pathname === '/men' ? 'darkBtn px-3' : 'hdrLightBtn px-3'}
-                                            >
-                                                <span>Men</span> <i className="bi bi-caret-right d-block d-lg-none"></i>
-                                            </Nav.Link>
-                                        </Nav.Item>
-                                        <Nav.Item className='d-grid' onClick={combinedClose}>
-                                            <Nav.Link className={location.pathname === '/bridal' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/bridal'>
-                                                <img src={require('../Assets/Img/elegant_wine_crepe_lehenga_set_with_zardosi_choli_and_heavy_-sg195843_7_.jpg')} alt="" />
-                                            </Nav.Link>
-                                            <Nav.Link
-                                                as={Link}
-                                                to='/bridal'
-                                                className={location.pathname === '/bridal' ? 'darkBtn px-3' : 'hdrLightBtn px-3'}
-                                            >
-                                                Bridal
-                                            </Nav.Link>
-                                        </Nav.Item>
-                                        <Nav.Item className='d-grid' onClick={combinedClose}>
-                                            <Nav.Link className={location.pathname === '/luxe' ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to='/luxe'>
-                                                <img src={require('../Assets/Img/pink_embroidered_choli_with_exquisite_lehenga_an-sg220433_6_.jpg')} alt="" />
-                                            </Nav.Link>
-                                            <Nav.Link
-                                                as={Link}
-                                                to='/luxe'
-                                                className={location.pathname === '/luxe' ? 'darkBtn px-3' : 'hdrLightBtn px-3'}
-                                            >
-                                                Luxe
-                                            </Nav.Link>
-                                        </Nav.Item>
+                                        {
+                                            headerContent.map((item, index) => {
+                                                return (
+                                                    <Nav.Item className='d-grid' key={index} onClick={(item?.data) ? handleClick : combinedClose}>
+                                                        <Nav.Link className={location.pathname === `${item.value}` ? 'catImageHover catImageContain d-block d-lg-none p-0' : 'catImageContain d-block d-lg-none p-0'} as={Link} to={item.value}>
+                                                            <img src={item.image} alt="" />
+                                                        </Nav.Link>
+                                                        <Nav.Link
+                                                            as={Link}
+                                                            to={item.value}
+                                                            className={location.pathname === `${item.value}` ? 'darkBtn text-uppercase px-3' : 'hdrLightBtn text-uppercase px-3'}
+                                                        >
+                                                            {item.label}
+                                                        </Nav.Link>
+                                                    </Nav.Item>
+                                                )
+                                            })
+                                        }
                                     </Nav>
                                 </Offcanvas.Body>
                                 {/* New Canvas */}
@@ -566,16 +228,38 @@ function Header() {
                                         </Offcanvas.Title>
                                     </Offcanvas.Header>
                                     <Offcanvas.Body className='py-0'>
-                                        {location.pathname === '/' &&
-                                            <div className='d-grid d-lg-none'>
-                                                {womenSubHeader}
-                                            </div>
-                                        }
-                                        {location.pathname === '/men' &&
-                                            <div className='d-grid d-lg-none'>
-                                                {menSubHeader}
-                                            </div>
-                                        }
+                                        <div className='d-grid d-lg-none'>
+                                            {
+                                                headerContent.map((item, index) => {
+                                                    return (
+                                                        (item?.data) &&
+                                                        item?.data.map((newItem, newIndex) => {
+                                                            return (
+                                                                (location.pathname === item?.value) &&
+                                                                <Container fluid key={newIndex} className='sub_heading fw-normal d-grid d-lg-flex justify-content-start justify-content-xxl-between text-uppercase gap-3 py-lg-0 p-xl-0'>
+                                                                    <Link to={newItem.value} onClick={combinedClose}>
+                                                                        {newItem.label}
+                                                                        {(newItem?.data) &&
+                                                                            <ul className='sub_menu fw-bold'>
+                                                                                {
+                                                                                    newItem?.data.map((subItem, subIndex) => {
+                                                                                        return (
+                                                                                            <li key={subIndex}>{subItem.label}</li>
+                                                                                        )
+                                                                                    })
+                                                                                }
+                                                                                <li className='catImage'>
+                                                                                    <img src={newItem.image} alt="" />
+                                                                                </li>
+                                                                            </ul>}
+                                                                    </Link>
+                                                                </Container>
+                                                            )
+                                                        })
+                                                    )
+                                                })
+                                            }
+                                        </div>
                                     </Offcanvas.Body>
                                 </Offcanvas>
                             </Navbar.Offcanvas>
@@ -600,7 +284,8 @@ function Header() {
                                     <i className="bi bi-search"></i>
                                 </label>
                             </div>
-                            <Link to='/user' className='custom-user-box bi bi-person-circle'>
+                            <div className='custom-user-box'>
+                                <Link to='/user' className='bi bi-person-circle text-success'></Link>
                                 <div className='custom-user-list fs-md-12'>
                                     <Link to='/user'>Welcome <span>user!</span></Link>
                                     <Link to='/user/account'><i className='bi bi-person-circle'></i> <span>Account Details</span></Link>
@@ -608,7 +293,7 @@ function Header() {
                                     <Link to='/wishlist'><i className="bi bi-heart"></i> <span>Wishlist</span></Link>
                                     <Link to='/' className='text-danger'>Sign Out</Link>
                                 </div>
-                            </Link>
+                            </div>
                             <Link to='/' className='d-none d-sm-block'><i className="bi bi-whatsapp"></i></Link>
 
                             {/* Login / Sign In modal */}
@@ -638,9 +323,54 @@ function Header() {
                                                     <h5 className='text-center'>Sign Up</h5>
                                                     <span className='text-center fs-12'>Welcome to Kalki! It's quick and easy to set up an account</span>
                                                     <div className='d-grid pt-2 pt-md-4 custom-login-form'>
-                                                        <input type="text" placeholder='Enter First Name *' />
-                                                        <input type="text" placeholder='Enter Last Name *' />
-                                                        <input type="email" placeholder='Enter Email Address *' />
+                                                        <input type="text"
+                                                            name="fname"
+                                                            pattern='^[A-Za-z ]{4,10}$'
+                                                            value={formData.fname}
+                                                            onFocus={(e) => handleFocus({
+                                                                required: true,
+                                                                key: e?.target?.name,
+                                                                value: e?.target?.value
+                                                            })}
+                                                            onChange={(e) => checkValidation({ key: e?.target?.name, value: e?.target?.value, pattern: e?.target?.pattern, required: true })}
+                                                            placeholder='Enter First Name *' />
+                                                        {
+                                                            err?.fname
+                                                                ? <span className="text-danger fs-12">{err.fname}</span>
+                                                                : ''
+                                                        }
+                                                        <input type="text"
+                                                            name="lname"
+                                                            pattern='^[A-Za-z ]{4,10}$'
+                                                            value={formData.lname}
+                                                            onFocus={(e) => handleFocus({
+                                                                required: true,
+                                                                key: e?.target?.name,
+                                                                value: e?.target?.value
+                                                            })}
+                                                            onChange={(e) => checkValidation({ key: e?.target?.name, value: e?.target?.value, pattern: e?.target?.pattern, required: true })}
+                                                            placeholder='Enter Last Name *' />
+                                                        {
+                                                            err?.lname
+                                                                ? <span className="text-danger fs-12">{err.lname}</span>
+                                                                : ''
+                                                        }
+                                                        <input type="email"
+                                                            name="email"
+                                                            pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$'
+                                                            value={formData.email}
+                                                            onFocus={(e) => handleFocus({
+                                                                required: true,
+                                                                key: e?.target?.name,
+                                                                value: e?.target?.value
+                                                            })}
+                                                            onChange={(e) => checkValidation({ key: e?.target?.name, value: e?.target?.value, pattern: e?.target?.pattern, required: true })}
+                                                            placeholder='Enter Email Address *' />
+                                                        {
+                                                            err?.email
+                                                                ? <span className="text-danger fs-12">{err.email}</span>
+                                                                : ''
+                                                        }
                                                         <div className='d-flex'>
                                                             <select name="" id="">
                                                                 <option value="">+91</option>
@@ -648,10 +378,40 @@ function Header() {
                                                                 <option value="">+84</option>
                                                                 <option value="">+45</option>
                                                             </select>
-                                                            <input type="number" placeholder='Phone Number *' className='w-100' />
+                                                            <input type="number"
+                                                                name="mobile"
+                                                                pattern='^[0-9]{10}$'
+                                                                value={formData.mobile}
+                                                                onFocus={(e) => handleFocus({
+                                                                    required: true,
+                                                                    key: e?.target?.name,
+                                                                    value: e?.target?.value
+                                                                })}
+                                                                onChange={(e) => checkValidation({ key: e?.target?.name, value: e?.target?.value, pattern: e?.target?.pattern, required: true })}
+                                                                placeholder='Phone Number *' className='w-100' />
+                                                            {
+                                                                err?.mobile
+                                                                    ? <span className="text-danger fs-12">{err.mobile}</span>
+                                                                    : ''
+                                                            }
                                                         </div>
-                                                        <input type="password" placeholder='Enter Password *' />
-                                                        <Link className='text-uppercase custom-next-btn text-center halfBorderRad'>Next</Link>
+                                                        <input type="password"
+                                                            name="password"
+                                                            pattern='^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+                                                            value={formData.password}
+                                                            onFocus={(e) => handleFocus({
+                                                                required: true,
+                                                                key: e?.target?.name,
+                                                                value: e?.target?.value
+                                                            })}
+                                                            onChange={(e) => checkValidation({ key: e?.target?.name, value: e?.target?.value, pattern: e?.target?.pattern, required: true })}
+                                                            placeholder='Enter Password *' />
+                                                        {
+                                                            err?.password
+                                                                ? <span className="text-danger fs-12">{err.password}</span>
+                                                                : ''
+                                                        }
+                                                        <Link className='text-uppercase custom-next-btn text-center halfBorderRad' onClick={storeData}>Next</Link>
                                                         <span className='text-center fs-md-12'>By continuing, I agree to the Terms of Use and Privacy Policy</span>
                                                         <div className='custom-social-login'>
                                                             <Link><i className="bi bi-facebook"></i></Link>
@@ -860,17 +620,56 @@ function Header() {
                     </div>
                 </Navbar>
             ))}
-            {(location.pathname !== '/men' && location.pathname !== '/bridal') && (
-                <Navbar className='main_sub_header d-none d-lg-block px-xl-5 py-1'>
-                    {womenSubHeader}
-                </Navbar>
-            )}
-            {location.pathname === '/men' && (
-                <Navbar className='main_sub_header d-none d-lg-block px-xl-5 py-1'>
-                    {menSubHeader}
-                </Navbar>
-            )}
-            <div className={location.pathname === '/bridal' ? '' : 'forMargin'}></div>
+            {
+                headerContent.map((item, index) => {
+                    return (
+                        (location.pathname === item.value && item?.data) &&
+                        <Navbar key={index} className='main_sub_header d-none d-lg-block px-xl-5 py-1'>
+                            <Container fluid className='sub_heading fw-normal d-grid d-lg-flex justify-content-start justify-content-xxl-between text-uppercase gap-3 py-3 py-lg-0 p-xl-0'>
+                                {
+                                    item?.data.map((newItem, newIndex) => {
+                                        return (
+                                            <Link key={newIndex} to={newItem.value} onClick={combinedClose}>
+                                                {newItem.label}
+                                                {
+                                                    (newItem?.data) &&
+                                                    <ul className='sub_menu fw-bold '>
+                                                        {
+                                                            (newItem?.data) &&
+                                                            newItem?.data.map((subItem, subIndex) => {
+                                                                return (
+                                                                    <li key={subIndex}>
+                                                                        {subItem.label}
+                                                                        <ul className='peta_menu p-0  pt-3 text-capitalize fw-light'>
+                                                                            {
+                                                                                (subItem?.data) &&
+                                                                                subItem?.data.map((petaItem, petaIndex) => {
+                                                                                    return (
+                                                                                        <li key={petaIndex}>{petaItem.label}</li>
+                                                                                    )
+                                                                                })
+                                                                            }
+                                                                        </ul>
+                                                                    </li>
+                                                                )
+                                                            })
+                                                        }
+                                                        <li className='catImage'>
+                                                            <img src={newItem.image} alt="" />
+                                                        </li>
+                                                    </ul>
+                                                }
+                                            </Link>
+                                        )
+                                    })
+                                }
+                            </Container>
+                        </Navbar>
+                    )
+                })
+            }
+
+            <div className={location.pathname === '/bridal' ? '' : (margin) ? 'forMargin' : (newMargin) ? 'new-for-margin' : 'new-for-margin'}></div>
         </div>
     );
 }
