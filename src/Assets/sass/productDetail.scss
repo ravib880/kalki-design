@@ -71,6 +71,17 @@
     }
 }
 
+.magnify-image {
+    width: 200px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .sizeImage {
     div {
@@ -239,7 +250,8 @@
             text-decoration: none;
             border-bottom: 2px solid $primaryColor;
         }
-        .questionSection{
+
+        .questionSection {
             color: gray;
             border-bottom-width: 0px;
         }
